@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       session[:user_id] = @new_user.id
       redirect_to "/users/#{@new_user.id}"
     else
-      render "users/new"
+      render "/users/new"
     end
   end
 
@@ -57,9 +57,9 @@ class UsersController < ApplicationController
       user = User.find(session[:user_id])
       user.delete
       session[:user_id] = nil
-      redirect_to "users"
+      redirect_to "/users"
     else
-      redirect_to "users"
+      redirect_to "/users"
     end
   end
 
