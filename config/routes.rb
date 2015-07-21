@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   get "login" => "users#login"
+
+  post "authenticate_login" => "users#authenticate_login"
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
