@@ -63,4 +63,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(session[:user_id])
+  end
+
+  def save_edit
+    @user = User.find(params["id"])
+    @user.email = params["users"]["email"]
+    encrypted_password = BCrypt::Password.create(params["users"]["password"])
+    @user.password = encrypted_password
+    @user.save
+
+    if !@user.valid?
+      @user
+      render "/users/edit"
+    else
+      redirect_to "/users"
+    end
+  end
+
 end
