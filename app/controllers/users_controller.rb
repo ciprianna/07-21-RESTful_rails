@@ -32,6 +32,21 @@ class UsersController < ApplicationController
   # erb :"users/index"
   end
 
-  
+  def new
+    @new_user = User.new
+  end
+
+  def save_new
+    email = params["users"].permit("email")
+    password = BCrypt::Password.create(params["users"].permit("password"))
+    @new_user = User.create({"email" => email, "password" => password})
+
+    if @new_user.valid?
+      session[:user_id] = @new_user.id
+      redirect_to "/users/#{@new_user.id}"
+    else
+      render "users/new"
+    end
+  end
 
 end

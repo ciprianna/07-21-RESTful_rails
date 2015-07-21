@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   post "authenticate_login" => "users#authenticate_login"
 
   get "users" => "users#index"
+
+  get "users/new" => "users#new"
+
+  post "users" => "users#save_new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
