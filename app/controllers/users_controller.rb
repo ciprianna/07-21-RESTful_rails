@@ -37,8 +37,8 @@ class UsersController < ApplicationController
   end
 
   def save_new
-    email = params["users"].permit(:email)
-    password = BCrypt::Password.create(params["users"].permit(:password))
+    email = params["users"]["email"]
+    password = BCrypt::Password.create(params["users"]["password"])
     @new_user = User.create({"email" => email, "password" => password})
 
     if @new_user.valid?
