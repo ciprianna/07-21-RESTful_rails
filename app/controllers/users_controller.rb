@@ -24,4 +24,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    if !params["log_out"].nil?
+    session[:user_id] = nil
+    # erb :"users/index"
+    end
+  # erb :"users/index"
+  end
+
+  
+
 end
