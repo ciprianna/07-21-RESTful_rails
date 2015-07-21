@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   put "users/:id" => "users#save_edit"
 
+  get "/users/:user_id/stories" => "stories#index"
+
   get "users/:id" => "users#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

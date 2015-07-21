@@ -26,10 +26,8 @@ class UsersController < ApplicationController
 
   def index
     if !params["log_out"].nil?
-    session[:user_id] = nil
-    # erb :"users/index"
+      session[:user_id] = nil
     end
-  # erb :"users/index"
   end
 
   def new
