@@ -1,3 +1,17 @@
 <div>
   <h3><%= @user.email %></h3>
 </div>
+
+<div>
+  <ul>
+    <% @user_stories.each do |story| %>
+    <li>
+      <%= story.title %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <a href="/users/<%= @user.id %>/stories">View detailed story information from the author</a>
+</div>
