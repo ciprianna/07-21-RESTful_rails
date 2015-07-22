@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  post "/users/:user_id/stories" => "stories#new_save"
-
   get "/login" => "users#login"
 
   post "/authenticate_login" => "users#authenticate_login"
@@ -9,8 +7,6 @@ Rails.application.routes.draw do
   get "/users" => "users#index"
 
   get "/users/new" => "users#new"
-
-  post "/users" => "users#save_new"
 
   get "/delete_profile" => "users#delete"
 
@@ -24,7 +20,13 @@ Rails.application.routes.draw do
 
   get "/new_story" => "stories#new"
 
+  post "/users/:user_id/stories" => "stories#new_save"
+
+  delete "/delete_story" => "stories#delete"
+
   get "/users/:id" => "users#show"
+
+  post "/users" => "users#save_new"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
