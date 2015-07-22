@@ -24,6 +24,10 @@ Rails.application.routes.draw do
 
   delete "/delete_story" => "stories#delete"
 
+  get "/edit_story" => "stories#edit"
+
+  put "/users/:user_id/stories/:id" => "stories#edit_save"
+
   get "/users/:id" => "users#show"
 
   post "/users" => "users#save_new"

@@ -36,6 +36,25 @@ class StoriesController < ApplicationController
     redirect_to "/users/#{@user.id}/stories"
   end
 
-  
+  def edit
+    @user = User.find(session[:user_id])
+    @story = Story.find(params["stories"]["id"])
+    @route_path = '/users/' + @user.id.to_s + '/stories/' + @story.id.to_s
+  end
+
+  def edit_save
+    @user = User.find(session[:user_id])
+    @story = Story.find(params["id"])
+    @story.title = params["stories"]["title"]
+    @story.summary = params["stories"]["summary"]
+    @story.save
+
+    if !@story.valid?
+      @story
+      render "/stories/edit"
+    else
+      redirect_to "/users/#{@user.id}/stories"
+    end
+  end
 
 end
