@@ -1,26 +1,31 @@
 Rails.application.routes.draw do
 
-  get "login" => "users#login"
+  post "/users/:user_id/stories" => "stories#new_save"
 
-  post "authenticate_login" => "users#authenticate_login"
+  get "/login" => "users#login"
 
-  get "users" => "users#index"
+  post "/authenticate_login" => "users#authenticate_login"
 
-  get "users/new" => "users#new"
+  get "/users" => "users#index"
 
-  post "users" => "users#save_new"
+  get "/users/new" => "users#new"
 
-  get "delete_profile" => "users#delete"
+  post "/users" => "users#save_new"
 
-  delete "confirm_delete" => "users#confirm_delete"
+  get "/delete_profile" => "users#delete"
 
-  get "edit_profile" => "users#edit"
+  delete "/confirm_delete" => "users#confirm_delete"
 
-  put "users/:id" => "users#save_edit"
+  get "/edit_profile" => "users#edit"
+
+  put "/users/:id" => "users#save_edit"
 
   get "/users/:user_id/stories" => "stories#index"
 
-  get "users/:id" => "users#show"
+  get "/new_story" => "stories#new"
+
+  get "/users/:id" => "users#show"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

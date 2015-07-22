@@ -10,4 +10,23 @@ class StoriesController < ApplicationController
     end
   end
 
+  def new
+    user = User.find(session[:user_id])
+    @new_story = Story.new
+    @route_path = '/users/' + user.id.to_s + '/stories'
+  end
+
+  def new_save
+    @user = User.find(session[:user_id])
+    title = params["stories"]["title"]
+    summary = params["stories"]["summary"]
+    @new_story = Story.create({"title" => title, "summary" => summary, "user_id" => @user.id})
+
+    if @new_story.valid?
+      redirect_to "/users/#{@user.id}/stories/#{@new_story.id}"
+    else
+      render "/stories/new"
+    end
+  end
+
 end

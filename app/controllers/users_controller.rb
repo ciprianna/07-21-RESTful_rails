@@ -63,6 +63,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(session[:user_id])
+    @route_path = '/users/' + @user.id.to_s
   end
 
   def save_edit
