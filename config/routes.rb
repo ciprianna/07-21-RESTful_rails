@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   put "/users/:user_id/stories/:id" => "stories#edit_save"
 
+  get "/users/:user_id/stories/:id" => "stories#show"
+
   get "/users/:id" => "users#show"
 
   post "/users" => "users#save_new"
