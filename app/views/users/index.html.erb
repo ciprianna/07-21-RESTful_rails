@@ -4,13 +4,13 @@
     <% if session[:user_id] %>
       <form action="/users">
         <input type="hidden" name="log_out" value="true">
-        <input type="submit" value="Log Out">
+        <input type="submit" value="Log Out" class="btn btn-primary">
       </form>
-      <a href="/edit_profile">Edit Profile</a>
-      <a href="/delete_profile">Delete Profile</a>
-      <a href="/new_story">Add a New Story</a>
+      <a href="/edit_profile"><button class="btn btn-info">Edit Profile</button></a>
+      <a href="/delete_profile" data-method='delete' data-confirm="Are you sure?"><button class="btn btn-info">Delete Profile</button></a>
+      <a href="/new_story"><button class="btn btn-info">Add a New Story</button></a>
     <% else %>
-      <a href="/login">Login</a>
+      <a href="/login"><button class="btn btn-primary">Login</button></a>
     <% end %>
   </div>
 

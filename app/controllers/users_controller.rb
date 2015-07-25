@@ -51,14 +51,10 @@ class UsersController < ApplicationController
   end
 
   def confirm_delete
-    if params["confirm_delete"] == "yes"
-      user = User.find(session[:user_id])
-      user.delete
-      session[:user_id] = nil
-      redirect_to "/users"
-    else
-      redirect_to "/users"
-    end
+    user = User.find(session[:user_id])
+    user.delete
+    session[:user_id] = nil
+    redirect_to "/users"
   end
 
   def edit

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get "/delete_profile" => "users#delete"
 
-  delete "/confirm_delete" => "users#confirm_delete"
+  delete "/delete_profile" => "users#confirm_delete"
 
   get "/edit_profile" => "users#edit"
 
