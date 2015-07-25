@@ -6,9 +6,19 @@
         <input type="hidden" name="log_out" value="true">
         <input type="submit" value="Log Out" class="btn btn-primary">
       </form>
-      <a href="/edit_profile"><button class="btn btn-info">Edit Profile</button></a>
-      <a href="/delete_profile" data-method='delete' data-confirm="Are you sure?"><button class="btn btn-info">Delete Profile</button></a>
-      <a href="/new_story"><button class="btn btn-info">Add a New Story</button></a>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="/edit_profile"><button class="btn btn-info input-block-level">Edit Profile</button></a>
+          </div>
+          <div class="col-md-4">
+            <a href="/delete_profile" data-method='delete' data-confirm="Are you sure?"><button class="btn btn-info input-block-level">Delete Profile</button></a>
+          </div>
+          <div class="col-md-4">
+          <a href="/new_story"><button class="btn btn-info input-block-level">Add a New Story</button></a>
+          </div>
+        </div>
+      </div>
     <% else %>
       <a href="/login"><button class="btn btn-primary">Login</button></a>
     <% end %>
